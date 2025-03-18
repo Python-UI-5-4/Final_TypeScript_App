@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Final_App",
+    "name": "Devolt",
     "slug": "Final_App",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -8,19 +8,24 @@
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
-    "splash": {
-      "image": "./assets/images/splash-icon.png",
-      "resizeMode": "contain",
+    "splash": { 
+      "image": "./assets/images/splash-icon.png", 
+      "resizeMode": "cover",
       "backgroundColor": "#ffffff"
     },
     "ios": {
       "supportsTablet": true
     },
     "android": {
+      "permissions": [
+        "INTERNECT",
+        "ACCESS_NETWORK_STATE"
+      ],
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+       "versionCode": 1
     },
     "web": {
       "bundler": "metro",
@@ -32,6 +37,15 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "17ffa0c1-91ec-46a1-8956-95c25b52ba89"
+      }
+    },
+    "owner": "teawha"
   }
 }
