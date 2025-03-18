@@ -4,7 +4,7 @@ import { Link, Tabs } from 'expo-router';
 import { Pressable } from 'react-native';
 
 import { Text } from '@/components/Themed';
-
+import { MaterialIcons } from "@expo/vector-icons";
 import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
 import { useClientOnlyValue } from '@/components/useClientOnlyValue';
@@ -32,10 +32,10 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="image" color={color} />,
+          tabBarIcon: ({ color }) => <MaterialIcons name={"school"} size={25} color={color} />,
           tabBarLabel: ({ color }) => (
-          <Text style={{ fontFamily: "regular", fontSize: 10, color, marginTop: 5 }}>{/* ✅ 폰트 적용 */}
-          Tab One
+          <Text style={{ fontFamily: "extrabold", fontSize: 11, color, marginTop: 5 }}>{/* ✅ 폰트 적용 */}
+          정처기
           </Text>
           ),
           headerRight: () => (
@@ -58,28 +58,104 @@ export default function TabLayout() {
         name="two"
         options={{
           title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <MaterialIcons name={"code"} size={25} color={color} />,
+                    tabBarLabel: ({ color }) => (
+          <Text style={{ fontFamily: "extrabold", fontSize: 11, color, marginTop: 5 }}>{/* ✅ 폰트 적용 */}
+          코딩테스트
+          </Text>
+          ),
+          headerRight: () => (
+            <Link href="/modal" asChild>
+              <Pressable>
+                {({ pressed }) => (
+                  <FontAwesome
+                    name="info-circle"
+                    size={25}
+                    color={Colors[colorScheme ?? 'light'].text}
+                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1}}
+                  />
+                )}
+              </Pressable>
+            </Link>
+          ),
         }}
       />
       <Tabs.Screen
         name="three"
         options={{
           title: 'Tab Three',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) =>  <MaterialIcons name={"home-filled"} size={25} color={color} />,
+                    tabBarLabel: ({ color }) => (
+          <Text style={{ fontFamily: "extrabold", fontSize: 11, color, marginTop: 5 }}>{/* ✅ 폰트 적용 */}
+          데볼트 홈
+          </Text>
+          ),
+          headerRight: () => (
+            <Link href="/modal" asChild>
+              <Pressable>
+                {({ pressed }) => (
+                  <FontAwesome
+                    name="info-circle"
+                    size={25}
+                    color={Colors[colorScheme ?? 'light'].text}
+                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1}}
+                  />
+                )}
+              </Pressable>
+            </Link>
+          ),
         }}
       />
       <Tabs.Screen
         name="four"
         options={{
           title: 'Tab Four',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <MaterialIcons name={"forum"} size={25} color={color} />,
+                    tabBarLabel: ({ color }) => (
+          <Text style={{ fontFamily: "extrabold", fontSize: 11, color, marginTop: 5 }}>{/* ✅ 폰트 적용 */}
+          멘토링
+          </Text>
+          ),
+          headerRight: () => (
+            <Link href="/modal" asChild>
+              <Pressable>
+                {({ pressed }) => (
+                  <FontAwesome
+                    name="info-circle"
+                    size={25}
+                    color={Colors[colorScheme ?? 'light'].text}
+                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1}}
+                  />
+                )}
+              </Pressable>
+            </Link>
+          ),
         }}
       />
       <Tabs.Screen
         name="five"
         options={{
           title: 'Tab Five',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) =>  <MaterialIcons name={"person"} size={25} color={color} />,
+                    tabBarLabel: ({ color }) => (
+          <Text style={{ fontFamily: "extrabold", fontSize: 11, color, marginTop: 5 }}>{/* ✅ 폰트 적용 */}
+          마이
+          </Text>
+          ),
+          headerRight: () => (
+            <Link href="/modal" asChild>
+              <Pressable>
+                {({ pressed }) => (
+                  <FontAwesome
+                    name="info-circle"
+                    size={25}
+                    color={Colors[colorScheme ?? 'light'].text}
+                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1}}
+                  />
+                )}
+              </Pressable>
+            </Link>
+          ),
         }}
       />
     </Tabs>

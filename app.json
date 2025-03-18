@@ -4,14 +4,14 @@
     "slug": "Final_App",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/logo/logo.png",
+    "icon": "./assets/images/logo/splash-icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": { 
       "image": "./assets/images/logo/logo.png", 
       "resizeMode": "cover",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#1e1e1e"
     },
     "assetBundlePatterns": [
       "assets/fonts/*"
@@ -26,7 +26,7 @@
       ],
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/logo/logo.png",
-        "backgroundColor": "#ffffff"
+        "backgroundColor": "#1e1e1e"
       },
        "versionCode": 1
     },
