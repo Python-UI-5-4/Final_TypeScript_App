@@ -3,6 +3,8 @@ import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Tabs } from 'expo-router';
 import { Pressable } from 'react-native';
 
+import { Text } from '@/components/Themed';
+
 import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
 import { useClientOnlyValue } from '@/components/useClientOnlyValue';
@@ -30,7 +32,12 @@ export default function TabLayout() {
         name="index"
         options={{
           title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ color }) => <TabBarIcon name="image" color={color} />,
+          tabBarLabel: ({ color }) => (
+          <Text style={{ fontFamily: "regular", fontSize: 10, color, marginTop: 5 }}>{/* ✅ 폰트 적용 */}
+          Tab One
+          </Text>
+          ),
           headerRight: () => (
             <Link href="/modal" asChild>
               <Pressable>
@@ -39,7 +46,7 @@ export default function TabLayout() {
                     name="info-circle"
                     size={25}
                     color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1}}
                   />
                 )}
               </Pressable>
@@ -51,6 +58,27 @@ export default function TabLayout() {
         name="two"
         options={{
           title: 'Tab Two',
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="three"
+        options={{
+          title: 'Tab Three',
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="four"
+        options={{
+          title: 'Tab Four',
+          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="five"
+        options={{
+          title: 'Tab Five',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
         }}
       />

@@ -1,12 +1,13 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
+
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/components/useColorScheme';
+import useFonts from '@/hooks/useFonts';
+import { ActivityIndicator, View } from 'react-native';
+import { useEffect } from 'react';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -22,26 +23,22 @@ export const unstable_settings = {
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const [loaded, error] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-    ...FontAwesome.font,
-  });
+  const fontsLoaded = useFonts();
 
-  // Expo Router uses Error Boundaries to catch errors in the navigation tree.
-  useEffect(() => {
-    if (error) throw error;
-  }, [error]);
-
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
+   useEffect(() => {
+    if (fontsLoaded) {
+      SplashScreen.hideAsync(); // 🚀 폰트가 로드되었을 때 스플래시 숨기기
     }
-  }, [loaded]);
+  }, [fontsLoaded]);
 
-  if (!loaded) {
-    return null;
+  if (!fontsLoaded) {
+    return (
+      <View style={{flex: 1, justifyContent: "center", alignItems:"center", backgroundColor: "#000"}}>
+        <ActivityIndicator size="large" color="#ffffff"/>
+      </View>
+    )
   }
-
+  
   return <RootLayoutNav />;
 }
 
